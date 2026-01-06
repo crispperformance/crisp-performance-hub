@@ -3,7 +3,7 @@ import { Award, Target, Heart, Zap } from "lucide-react";
 
 const AboutSection = () => {
   const values = [
-    { icon: Target, title: "Precision", desc: "Every program is tailored to your unique goals" },
+    { icon: Target, title: "Precision", desc: "Every programme is tailored to your unique goals" },
     { icon: Zap, title: "Intensity", desc: "Pushing boundaries with purpose and passion" },
     { icon: Heart, title: "Dedication", desc: "Your success is my number one priority" },
     { icon: Award, title: "Results", desc: "Proven methods that deliver real outcomes" },
