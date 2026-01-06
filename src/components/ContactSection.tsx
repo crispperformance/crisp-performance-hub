@@ -29,7 +29,6 @@ const ContactSection = () => {
 
   const contactInfo = [
     { icon: MapPin, label: "Location", value: "London, UK" },
-    { icon: Phone, label: "Phone", value: "+44 7XXX XXXXXX" },
     { icon: Mail, label: "Email", value: "hello@crispperformance.com" },
   ];
 

@@ -17,12 +17,6 @@ const ServicesSection = () => {
       features: ["Video tutorials", "Weekly check-ins", "App-based tracking", "24/7 support"],
     },
     {
-      icon: Users,
-      title: "Group Training",
-      description: "High-energy group sessions that combine community motivation with personalized attention. Push harder together.",
-      features: ["Small group sizes", "Competitive atmosphere", "Team challenges", "Social accountability"],
-    },
-    {
       icon: ClipboardList,
       title: "Program Design",
       description: "Custom training programs designed for athletes and fitness enthusiasts who want a structured path to their goals.",
@@ -50,7 +44,7 @@ const ServicesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={index}
