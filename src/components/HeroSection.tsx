@@ -41,7 +41,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 font-body font-light"
           >
-            Transform your body and mindset with personalized training programs 
+            Transform your body and mindset with personalised training programmes 
             designed to push your limits and achieve extraordinary results.
           </motion.p>
 
@@ -60,7 +60,7 @@ const HeroSection = () => {
             <Button variant="heroOutline" size="xl" asChild>
               <a href="#services" className="flex items-center gap-2">
                 <Play size={18} />
-                View Programs
+                View Programmes
               </a>
             </Button>
           </motion.div>

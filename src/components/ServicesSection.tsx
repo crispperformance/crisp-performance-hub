@@ -7,7 +7,7 @@ const ServicesSection = () => {
     {
       icon: Dumbbell,
       title: "1-on-1 Personal Training",
-      description: "Personalized in-person sessions tailored to your goals. Get hands-on guidance, form correction, and real-time feedback to maximize every rep.",
+      description: "Personalised in-person sessions tailored to your goals. Get hands-on guidance, form correction, and real-time feedback to maximise every rep.",
       features: ["Custom workout plans", "Nutritional guidance", "Progress tracking", "Flexible scheduling"],
     },
     {
@@ -18,9 +18,9 @@ const ServicesSection = () => {
     },
     {
       icon: ClipboardList,
-      title: "Program Design",
-      description: "Custom training programs designed for athletes and fitness enthusiasts who want a structured path to their goals.",
-      features: ["Periodized training", "Sport-specific focus", "Recovery protocols", "Performance testing"],
+      title: "Programme Design",
+      description: "Custom training programmes designed for athletes and fitness enthusiasts who want a structured path to their goals.",
+      features: ["Periodised training", "Sport-specific focus", "Recovery protocols", "Performance testing"],
     },
   ];
 
