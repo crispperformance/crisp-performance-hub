@@ -29,7 +29,7 @@ const ContactSection = () => {
 
   const contactInfo = [
     { icon: MapPin, label: "Location", value: "London, UK" },
-    { icon: Mail, label: "Email", value: "hello@crispperformance.com" },
+    { icon: Mail, label: "Email", value: "owen@crispperformance.com" },
   ];
 
   const socials = [

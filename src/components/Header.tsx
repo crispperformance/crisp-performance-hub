@@ -21,11 +21,12 @@ const Header = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50"
     >
       <div className="container-custom flex items-center justify-between h-20">
-        {/* Logo placeholder */}
         <a href="#" className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-primary rounded-md flex items-center justify-center">
-            <span className="font-display text-xl text-primary-foreground font-bold">CP</span>
-          </div>
+          <img
+            src="/favicon.ico"
+            alt="Crisp Performance"
+            className="w-12 h-12 object-contain"
+          />
           <span className="font-display text-xl tracking-wider hidden sm:block">Crisp Performance</span>
         </a>
 

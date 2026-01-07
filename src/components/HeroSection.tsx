@@ -60,7 +60,7 @@ const HeroSection = () => {
             <Button variant="heroOutline" size="xl" asChild>
               <a href="#services" className="flex items-center gap-2">
                 <Play size={18} />
-                View Programmes
+                View Services
               </a>
             </Button>
           </motion.div>
@@ -73,8 +73,8 @@ const HeroSection = () => {
             className="mt-20 grid grid-cols-3 gap-8 max-w-lg mx-auto"
           >
             {[
-              { value: "500+", label: "Clients Transformed" },
-              { value: "10+", label: "Years Experience" },
+              { value: "50+", label: "Clients Transformed" },
+              { value: "9+", label: "Years Experience" },
               { value: "100%", label: "Commitment" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
