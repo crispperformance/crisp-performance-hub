@@ -12,9 +12,7 @@ const Footer = () => {
   ];
 
   const socials = [
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Youtube, href: "#", label: "YouTube" },
+    { icon: Instagram, href: "https://www.instagram.com/owen_crisp", label: "Instagram" },
     { icon: Mail, href: "mailto:hello@crispperformance.com", label: "Email" },
   ];
 
@@ -25,13 +23,10 @@ const Footer = () => {
           {/* Logo & Tagline */}
           <div className="text-center md:text-left">
             <a href="#" className="flex items-center gap-3 justify-center md:justify-start">
-              <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center">
-                <span className="font-display text-lg text-primary-foreground font-bold">CP</span>
-              </div>
               <span className="font-display text-lg tracking-wider">Crisp Performance</span>
             </a>
             <p className="text-muted-foreground text-sm font-body mt-2">
-              Elevate your performance. Transform your life.
+              Fortitudine Vincimus. Through endurance, we conquer.
             </p>
           </div>
 

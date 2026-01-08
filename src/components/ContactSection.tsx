@@ -29,7 +29,7 @@ const ContactSection = () => {
   };
 
   const contactInfo = [
-    { icon: MapPin, label: "Location", value: "London, UK" },
+    { icon: MapPin, label: "Location", value: "West Yorkshire, UK" },
     { icon: Mail, label: "Email", value: "owen@crispperformance.com" },
   ];
 
