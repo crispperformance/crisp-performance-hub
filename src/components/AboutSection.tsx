@@ -29,13 +29,15 @@ const AboutSection = () => {
                 <div className="w-20 h-1 bg-primary mb-4" />
                 <p className="font-display text-2xl">Your Coach</p>
               </div>
-              {/* Placeholder for coach image */}
+              {/* Coach image */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-muted-foreground/30 font-display text-6xl">PHOTO</span>
+                <img
+                src="/coach.JPG"
+                alt="Coach"
+                className="w-full h-full object-cover"
+                  />
               </div>
             </div>
-            {/* Accent */}
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 border-2 border-primary rounded-lg" />
           </motion.div>
 
           {/* Content */}
