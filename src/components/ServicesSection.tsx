@@ -1,26 +1,26 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Dumbbell, Video, Users, ClipboardList, ArrowRight } from "lucide-react";
+import { Dumbbell, Beef, Video, Users, ClipboardList, ArrowRight } from "lucide-react";
 
 const ServicesSection = () => {
   const services = [
     {
-      icon: Dumbbell,
-      title: "1-on-1 Personal Training",
-      description: "Personalised in-person sessions tailored to your goals. Get hands-on guidance, form correction, and real-time feedback to maximise every rep.",
-      features: ["Custom workout plans", "Nutritional guidance", "Progress tracking", "Flexible scheduling"],
-    },
-    {
       icon: Video,
       title: "Online Coaching",
       description: "Train anywhere with comprehensive online programs. Perfect for busy professionals who need flexibility without sacrificing results.",
-      features: ["Video tutorials", "Weekly check-ins", "App-based tracking", "24/7 support"],
+      features: ["Video tutorials", "Weekly check-ins", "App-based tracking", "Dedicated Whatsapp support"],
     },
     {
-      icon: ClipboardList,
+      icon: Dumbbell,
       title: "Programme Design",
-      description: "Custom training programmes designed for athletes and fitness enthusiasts who want a structured path to their goals.",
+      description: "Custom training programmes designed for anyone, from athletes and fitness enthusiasts to the beginners seeking structured path to their goals.",
       features: ["Periodised training", "Sport-specific focus", "Recovery protocols", "Performance testing"],
+    },
+    {
+      icon: Beef,
+      title: "Nutrition and Lifestyle",
+      description: "Custom nutritional and lifestyle coaching for those looking to get a grip of their most important variables.",
+      features: ["Macro tracking", "Sport-specific nutrition", "Recovery protocols", "Performance fuelling", "Motivation and discipline"],
     },
   ];
 
