@@ -51,18 +51,25 @@ const AboutSection = () => {
             </h2>
             <div className="space-y-4 text-muted-foreground font-body">
               <p>
-                With over a decade of experience in personal training and performance coaching, 
-                I've dedicated my career to helping individuals unlock their full potential.
+                With almost a decade of experience in personal training and performance coaching, 
+                I've dedicated my sporting career to helping individuals unlock their full potential. 
               </p>
               <p>
-                My approach combines science-backed training methodologies with a deep understanding 
+                I am a fully qualified personal ActiveIQ level 3 personal trainer and competitive powerlifing 
+                athlete- competing up to international levels. In addition to this, I hold both a BsC and MSc qualification
+                in business and through my alternative career, have an exceptional understanding of people management and results
+                driven achievments.
+              </p>
+              <p>
+                My approach combines long standing training methodologies with a deep understanding 
                 of what motivates people to succeed. Whether you're an athlete looking to gain a 
                 competitive edge or someone starting their fitness journey, I'm here to guide you 
-                every step of the way.
+                every step of the way. Be warned, this is not the easy route, those looking for quick results need 
+                not apply. 
               </p>
               <p>
-                At Crisp Performance, it's not just about the physical transformation—it's about 
-                building mental resilience, confidence, and habits that last a lifetime.
+                At Crisp Performance, I'm not just about the physical transformation. I'm about 
+                building true mental resilience, confidence, and habits that last a lifetime.
               </p>
             </div>
 

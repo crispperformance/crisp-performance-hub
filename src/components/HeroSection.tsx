@@ -73,8 +73,8 @@ const HeroSection = () => {
             className="mt-20 grid grid-cols-3 gap-8 max-w-lg mx-auto"
           >
             {[
-              { value: "50+", label: "Clients Transformed" },
-              { value: "9+", label: "Years Experience" },
+              { value: "100", label: "Lives Transformed" },
+              { value: "8+", label: "Years Experience" },
               { value: "100%", label: "Commitment" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
