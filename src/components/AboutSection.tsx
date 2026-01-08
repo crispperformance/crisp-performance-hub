@@ -3,9 +3,9 @@ import { Award, Target, Heart, Zap } from "lucide-react";
 
 const AboutSection = () => {
   const values = [
-    { icon: Target, title: "Precision", desc: "Every programme is tailored to your unique goals" },
-    { icon: Zap, title: "Intensity", desc: "Pushing boundaries with purpose and passion" },
-    { icon: Heart, title: "Dedication", desc: "Your success is my number one priority" },
+    { icon: Target, title: "Precision", desc: "Every programme is unique to you, never templated" },
+    { icon: Zap, title: "Intensity", desc: "You'll learn to push boundaries with purpose and passion" },
+    { icon: Heart, title: "Dedication", desc: "True prioritsation and human support for your goals" },
     { icon: Award, title: "Results", desc: "Proven methods that deliver real outcomes" },
   ];
 
@@ -49,7 +49,7 @@ const AboutSection = () => {
           >
             <span className="text-primary text-sm uppercase tracking-widest font-body">About Me</span>
             <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-              Dedicated to Your Full<span className="text-primary">Transformation</span>
+              Dedicated to Your Full <span className="text-primary">Transformation</span>
             </h2>
             <div className="space-y-4 text-muted-foreground font-body">
               <p>
