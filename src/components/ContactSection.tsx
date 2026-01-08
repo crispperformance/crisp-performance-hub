@@ -34,9 +34,7 @@ const ContactSection = () => {
   ];
 
   const socials = [
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Youtube, href: "#", label: "YouTube" },
+    { icon: Instagram, href: "http://www.instagram.com/owen_crisp", label: "Instagram" },
   ];
 
   return (
@@ -100,7 +98,7 @@ const ContactSection = () => {
               </div>
 
               <div className="mt-6">
-                <label className="block text-sm font-body text-muted-foreground mb-2">Phone (Optional)</label>
+                <label className="block text-sm font-body text-muted-foreground mb-2">Phone</label>
                 <Input
                   type="tel"
                   placeholder="+44 7XXX XXXXXX"
@@ -115,11 +113,9 @@ const ContactSection = () => {
                     <SelectValue placeholder="Select a service" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="personal">1-on-1 Personal Training</SelectItem>
                     <SelectItem value="online">Online Coaching</SelectItem>
-                    <SelectItem value="group">Group Training</SelectItem>
                     <SelectItem value="program">Program Design</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
+                    <SelectItem value="other">Nutrition and Lifestyle Programming</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -127,7 +123,7 @@ const ContactSection = () => {
               <div className="mt-6">
                 <label className="block text-sm font-body text-muted-foreground mb-2">Message</label>
                 <Textarea
-                  placeholder="Tell me about your goals and what you're looking to achieve..."
+                  placeholder="Tell me about your goals and what I can help you with..."
                   required
                   rows={5}
                   className="bg-background border-border focus:border-primary resize-none"
@@ -196,8 +192,7 @@ const ContactSection = () => {
             <div className="mt-10 p-6 bg-primary/10 rounded-lg border border-primary/30">
               <h4 className="font-display text-lg mb-2">Quick Response Guarantee</h4>
               <p className="text-sm text-muted-foreground font-body">
-                I typically respond to all enquiries within 24 hours. For urgent matters, 
-                feel free to give me a call directly.
+                I aim to respond to all enquiries in 24 hours! 
               </p>
             </div>
           </motion.div>
