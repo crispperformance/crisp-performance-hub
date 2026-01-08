@@ -13,7 +13,7 @@ const ServicesSection = () => {
     {
       icon: Dumbbell,
       title: "Programme Design",
-      description: "Custom training programmes designed for anyone, from athletes and fitness enthusiasts to the beginners seeking structured path to their goals.",
+      description: "Custom training programmes designed for anyone, from athletes and fitness enthusiasts to the beginners seeking a structured path to their goals.",
       features: ["Periodised training", "Sport-specific focus", "Recovery protocols", "Performance testing"],
     },
     {

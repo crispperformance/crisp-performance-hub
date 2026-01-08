@@ -5,27 +5,21 @@ import { useState } from "react";
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      name: "James Mitchell",
-      role: "Business Executive",
-      content: "Working with Crisp Performance completely transformed my approach to fitness. I've lost 15kg and gained confidence I never knew I had. The online coaching program fit perfectly into my busy schedule.",
+      name: "Aaron",
+      role: "Seasoned Gym-goer",
+      content: "The first four weeks have ben great, I have really enjoyed it. You are doing a great job at providing a lot, whenever I message needing advice or form checks you are always there and your knowledge and experience really showed in the RDL video.",
       rating: 5,
     },
     {
-      name: "Sarah Chen",
-      role: "Marathon Runner",
-      content: "The sport-specific training program helped me shave 20 minutes off my marathon time. The attention to detail in programming and the constant support made all the difference.",
+      name: "Dylan",
+      role: "Martial Artist",
+      content: "You have given me enough to allow me to get confident in going to the gym and it gave me a massive motivation to go. As I have gotten more confident with the workouts and now enjoying the gym more I feel like I can have a go at this on my own.",
       rating: 5,
     },
     {
-      name: "Mike Thompson",
-      role: "Former Athlete",
-      content: "After years of injury, I thought my athletic days were over. The rehabilitation-focused training got me back to peak performance. I'm now stronger than I was in my twenties.",
-      rating: 5,
-    },
-    {
-      name: "Emma Williams",
-      role: "Fitness Beginner",
-      content: "As someone who was intimidated by gyms, the 1-on-1 sessions gave me the confidence and knowledge to train effectively. Best investment I've ever made in myself.",
+      name: "Tamsin",
+      role: "Powerlifter",
+      content: "It's weird how I feel miles stronger on squats now we train them less than I did when I was doing ridiculous volume every week. They're already stronger than they used to be, madness!",
       rating: 5,
     },
   ];
