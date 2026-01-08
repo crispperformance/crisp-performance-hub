@@ -47,7 +47,7 @@ const AboutSection = () => {
           >
             <span className="text-primary text-sm uppercase tracking-widest font-body">About Me</span>
             <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-              Dedicated to Your <span className="text-primary">Transformation</span>
+              Dedicated to Your Full<span className="text-primary">Transformation</span>
             </h2>
             <div className="space-y-4 text-muted-foreground font-body">
               <p>
