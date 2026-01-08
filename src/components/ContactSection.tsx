@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Send, MapPin, Phone, Mail, Instagram, Facebook, Youtube } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { Analytics } from "@vercel/analytics/next";
 
 const ContactSection = () => {
   const { toast } = useToast();
