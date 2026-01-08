@@ -115,7 +115,7 @@ const ContactSection = () => {
                   <SelectContent>
                     <SelectItem value="online">Online Coaching</SelectItem>
                     <SelectItem value="program">Program Design</SelectItem>
-                    <SelectItem value="other">Nutrition and Lifestyle Programming</SelectItem>
+                    <SelectItem value="other">Nutrition and Lifestyle</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
