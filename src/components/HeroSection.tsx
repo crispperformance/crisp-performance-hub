@@ -41,7 +41,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 font-body font-light"
           >
-            Your goals, my focus. No AI or copy+paste. I'm here to transform your body and mindset with personalised training programmes 
+            Your goals, my focus. No AI or templated copy + paste. I'm here to transform your body and mindset with personalised training programmes 
             designed to push you to the very edge of your potential.
           </motion.p>
 
@@ -73,7 +73,7 @@ const HeroSection = () => {
             className="mt-20 grid grid-cols-3 gap-8 max-w-lg mx-auto"
           >
             {[
-              { value: "100", label: "Lives Transformed" },
+              { value: "100+", label: "Lives Transformed" },
               { value: "8+", label: "Years Experience" },
               { value: "100%", label: "Commitment" },
             ].map((stat, index) => (
