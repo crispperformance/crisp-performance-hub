@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,6 +42,12 @@ const Header = () => {
               {link.label}
             </a>
           ))}
+          <Link
+            to="/macro-tracking"
+            className="font-body text-sm uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-300"
+          >
+            Resources
+          </Link>
           <Button variant="hero" size="default" asChild>
             <a href="#contact">Get Started</a>
           </Button>
@@ -73,6 +80,13 @@ const Header = () => {
                 {link.label}
               </a>
             ))}
+            <Link
+              to="/macro-tracking"
+              onClick={() => setIsMenuOpen(false)}
+              className="font-body text-base uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-300 py-2"
+            >
+              Resources
+            </Link>
             <Button variant="hero" size="lg" className="mt-4" asChild>
               <a href="#contact">Get Started</a>
             </Button>
