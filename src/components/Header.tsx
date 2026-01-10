@@ -1,8 +1,14 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,12 +48,19 @@ const Header = () => {
               {link.label}
             </a>
           ))}
-          <Link
-            to="/macro-tracking"
-            className="font-body text-sm uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-300"
-          >
-            Resources
-          </Link>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="font-body text-sm uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center gap-1 outline-none">
+              Resources
+              <ChevronDown size={14} />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-background border-border">
+              <DropdownMenuItem asChild>
+                <Link to="/resources/macro-calculator" className="cursor-pointer">
+                  Macro Calculator
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <Button variant="hero" size="default" asChild>
             <a href="#contact">Get Started</a>
           </Button>
@@ -80,13 +93,18 @@ const Header = () => {
                 {link.label}
               </a>
             ))}
-            <Link
-              to="/macro-tracking"
-              onClick={() => setIsMenuOpen(false)}
-              className="font-body text-base uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-300 py-2"
-            >
-              Resources
-            </Link>
+            <div className="space-y-2">
+              <span className="font-body text-base uppercase tracking-wider text-foreground py-2 block">
+                Resources
+              </span>
+              <Link
+                to="/resources/macro-calculator"
+                onClick={() => setIsMenuOpen(false)}
+                className="font-body text-sm uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-300 py-2 pl-4 block"
+              >
+                Macro Calculator
+              </Link>
+            </div>
             <Button variant="hero" size="lg" className="mt-4" asChild>
               <a href="#contact">Get Started</a>
             </Button>
