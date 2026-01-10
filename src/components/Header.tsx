@@ -9,16 +9,21 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const navLinks = [
-    { href: "#about", label: "About" },
-    { href: "#services", label: "Services" },
-    { href: "#testimonials", label: "Results" },
-    { href: "#contact", label: "Contact" },
+    { href: "about", label: "About" },
+    { href: "services", label: "Services" },
+    { href: "testimonials", label: "Results" },
+    { href: "contact", label: "Contact" },
   ];
+
+  const getLink = (href: string) => isHomePage ? `#${href}` : `/#${href}`;
 
   return (
     <motion.header
@@ -28,7 +33,7 @@ const Header = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50"
     >
       <div className="container-custom flex items-center justify-between h-20">
-        <a href="#" className="flex items-center gap-3">
+        <a href={isHomePage ? "#" : "/"} className="flex items-center gap-3">
           <img
             src="/favicon.ico"
             alt="Crisp Performance"
@@ -42,7 +47,7 @@ const Header = () => {
           {navLinks.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={getLink(link.href)}
               className="font-body text-sm uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               {link.label}
@@ -62,7 +67,7 @@ const Header = () => {
             </DropdownMenuContent>
           </DropdownMenu>
           <Button variant="hero" size="default" asChild>
-            <a href="#contact">Get Started</a>
+            <a href={getLink("contact")}>Get Started</a>
           </Button>
         </nav>
 
@@ -86,7 +91,7 @@ const Header = () => {
             {navLinks.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={getLink(link.href)}
                 onClick={() => setIsMenuOpen(false)}
                 className="font-body text-base uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-300 py-2"
               >
@@ -106,7 +111,7 @@ const Header = () => {
               </Link>
             </div>
             <Button variant="hero" size="lg" className="mt-4" asChild>
-              <a href="#contact">Get Started</a>
+              <a href={getLink("contact")}>Get Started</a>
             </Button>
           </div>
         </motion.nav>
