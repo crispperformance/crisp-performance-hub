@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Flame, Beef, Wheat, EggFried } from "lucide-react";
+import { Beef, Wheat, EggFried } from "lucide-react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
