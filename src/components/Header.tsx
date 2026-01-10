@@ -39,7 +39,7 @@ const Header = () => {
             alt="Crisp Performance"
             className="w-12 h-12 object-contain"
           />
-          <span className="font-display text-xl tracking-wider hidden sm:block">Crisp Performance</span>
+          <span className="font-display text-xl tracking-wider">Crisp Performance</span>
         </a>
 
         {/* Desktop Nav */}
