@@ -1,12 +1,12 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, Flame, Droplets, Beef } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Flame, Droplets, Beef } from "lucide-react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Slider } from "@/components/ui/slider";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const MacroTracking = () => {
   const [totalCalories, setTotalCalories] = useState(2000);
@@ -38,8 +38,8 @@ const MacroTracking = () => {
 
   const pieData = [
     { name: "Carbohydrates", value: carbPercent, color: "hsl(var(--primary))" },
-    { name: "Protein", value: proteinPercent, color: "hsl(220, 70%, 50%)" },
     { name: "Fat", value: fatPercent, color: "hsl(45, 80%, 50%)" },
+    { name: "Protein", value: proteinPercent, color: "hsl(220, 70%, 50%)" },
   ];
 
   const macroCards = [
@@ -52,20 +52,20 @@ const MacroTracking = () => {
       bgColor: "bg-primary/10",
     },
     {
-      title: "Protein",
-      icon: Beef,
-      calories: 4,
-      description: "Essential for muscle repair, growth, and maintaining lean body mass.",
-      color: "text-blue-500",
-      bgColor: "bg-blue-500/10",
-    },
-    {
       title: "Fat",
       icon: Droplets,
       calories: 9,
       description: "Supports hormone production, nutrient absorption, and sustained energy.",
       color: "text-yellow-500",
       bgColor: "bg-yellow-500/10",
+    },
+    {
+      title: "Protein",
+      icon: Beef,
+      calories: 4,
+      description: "Essential for muscle repair, growth, and maintaining lean body mass.",
+      color: "text-blue-500",
+      bgColor: "bg-blue-500/10",
     },
   ];
 
@@ -99,16 +99,7 @@ const MacroTracking = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-        <div className="container-custom flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft size={20} />
-            <span className="font-body text-sm uppercase tracking-wider">Back to Home</span>
-          </Link>
-          <span className="font-display text-xl tracking-wider">Macro Tracking</span>
-        </div>
-      </header>
+      <Header />
 
       <main className="pt-32 pb-20">
         <div className="container-custom">
@@ -190,39 +181,30 @@ const MacroTracking = () => {
                     </Label>
                     <span className="font-display text-primary">{carbPercent}%</span>
                   </div>
-                  <Slider
-                    value={[carbPercent]}
-                    onValueChange={handleCarbChange}
-                    max={100}
-                    min={0}
-                    step={1}
-                    className="[&_[role=slider]]:bg-primary"
-                  />
+                  <div className="relative flex w-full touch-none select-none items-center">
+                    <div className="relative h-2 w-full grow overflow-hidden rounded-full bg-secondary">
+                      <div 
+                        className="absolute h-full bg-primary" 
+                        style={{ width: `${carbPercent}%` }}
+                      />
+                    </div>
+                    <input
+                      type="range"
+                      min={0}
+                      max={100}
+                      step={1}
+                      value={carbPercent}
+                      onChange={(e) => handleCarbChange([Number(e.target.value)])}
+                      className="absolute w-full h-2 opacity-0 cursor-pointer"
+                    />
+                    <div 
+                      className="absolute block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors pointer-events-none"
+                      style={{ left: `calc(${carbPercent}% - 10px)` }}
+                    />
+                  </div>
                   <div className="flex justify-between text-sm text-muted-foreground font-body">
                     <span>{calculations.carbs.calories.toFixed(0)} kcal</span>
                     <span>{calculations.carbs.grams}g</span>
-                  </div>
-                </div>
-
-                {/* Protein Slider */}
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <Label className="font-body text-sm uppercase tracking-wider text-blue-500">
-                      Protein
-                    </Label>
-                    <span className="font-display text-blue-500">{proteinPercent}%</span>
-                  </div>
-                  <Slider
-                    value={[proteinPercent]}
-                    onValueChange={handleProteinChange}
-                    max={100}
-                    min={0}
-                    step={1}
-                    className="[&_[role=slider]]:bg-blue-500 [&_[data-orientation=horizontal]>[data-orientation=horizontal]]:bg-blue-500"
-                  />
-                  <div className="flex justify-between text-sm text-muted-foreground font-body">
-                    <span>{calculations.protein.calories.toFixed(0)} kcal</span>
-                    <span>{calculations.protein.grams}g</span>
                   </div>
                 </div>
 
@@ -234,17 +216,65 @@ const MacroTracking = () => {
                     </Label>
                     <span className="font-display text-yellow-500">{fatPercent}%</span>
                   </div>
-                  <Slider
-                    value={[fatPercent]}
-                    onValueChange={handleFatChange}
-                    max={100}
-                    min={0}
-                    step={1}
-                    className="[&_[role=slider]]:bg-yellow-500 [&_[data-orientation=horizontal]>[data-orientation=horizontal]]:bg-yellow-500"
-                  />
+                  <div className="relative flex w-full touch-none select-none items-center">
+                    <div className="relative h-2 w-full grow overflow-hidden rounded-full bg-secondary">
+                      <div 
+                        className="absolute h-full bg-yellow-500" 
+                        style={{ width: `${fatPercent}%` }}
+                      />
+                    </div>
+                    <input
+                      type="range"
+                      min={0}
+                      max={100}
+                      step={1}
+                      value={fatPercent}
+                      onChange={(e) => handleFatChange([Number(e.target.value)])}
+                      className="absolute w-full h-2 opacity-0 cursor-pointer"
+                    />
+                    <div 
+                      className="absolute block h-5 w-5 rounded-full border-2 border-yellow-500 bg-background ring-offset-background transition-colors pointer-events-none"
+                      style={{ left: `calc(${fatPercent}% - 10px)` }}
+                    />
+                  </div>
                   <div className="flex justify-between text-sm text-muted-foreground font-body">
                     <span>{calculations.fat.calories.toFixed(0)} kcal</span>
                     <span>{calculations.fat.grams}g</span>
+                  </div>
+                </div>
+
+                {/* Protein Slider */}
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <Label className="font-body text-sm uppercase tracking-wider text-blue-500">
+                      Protein
+                    </Label>
+                    <span className="font-display text-blue-500">{proteinPercent}%</span>
+                  </div>
+                  <div className="relative flex w-full touch-none select-none items-center">
+                    <div className="relative h-2 w-full grow overflow-hidden rounded-full bg-secondary">
+                      <div 
+                        className="absolute h-full bg-blue-500" 
+                        style={{ width: `${proteinPercent}%` }}
+                      />
+                    </div>
+                    <input
+                      type="range"
+                      min={0}
+                      max={100}
+                      step={1}
+                      value={proteinPercent}
+                      onChange={(e) => handleProteinChange([Number(e.target.value)])}
+                      className="absolute w-full h-2 opacity-0 cursor-pointer"
+                    />
+                    <div 
+                      className="absolute block h-5 w-5 rounded-full border-2 border-blue-500 bg-background ring-offset-background transition-colors pointer-events-none"
+                      style={{ left: `calc(${proteinPercent}% - 10px)` }}
+                    />
+                  </div>
+                  <div className="flex justify-between text-sm text-muted-foreground font-body">
+                    <span>{calculations.protein.calories.toFixed(0)} kcal</span>
+                    <span>{calculations.protein.grams}g</span>
                   </div>
                 </div>
               </CardContent>
@@ -297,13 +327,13 @@ const MacroTracking = () => {
                     <p className="text-primary font-display text-2xl">{calculations.carbs.grams}g</p>
                     <p className="text-muted-foreground text-xs font-body uppercase tracking-wider">Carbs</p>
                   </div>
-                  <div className="p-4 bg-blue-500/10 rounded-lg">
-                    <p className="text-blue-500 font-display text-2xl">{calculations.protein.grams}g</p>
-                    <p className="text-muted-foreground text-xs font-body uppercase tracking-wider">Protein</p>
-                  </div>
                   <div className="p-4 bg-yellow-500/10 rounded-lg">
                     <p className="text-yellow-500 font-display text-2xl">{calculations.fat.grams}g</p>
                     <p className="text-muted-foreground text-xs font-body uppercase tracking-wider">Fat</p>
+                  </div>
+                  <div className="p-4 bg-blue-500/10 rounded-lg">
+                    <p className="text-blue-500 font-display text-2xl">{calculations.protein.grams}g</p>
+                    <p className="text-muted-foreground text-xs font-body uppercase tracking-wider">Protein</p>
                   </div>
                 </div>
               </CardContent>
@@ -311,6 +341,8 @@ const MacroTracking = () => {
           </motion.div>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 };
