@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Flame, Droplets, Beef } from "lucide-react";
+import { Flame, Beef, Wheat, EggFried } from "lucide-react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -45,7 +45,7 @@ const MacroTracking = () => {
   const macroCards = [
     {
       title: "Carbohydrates",
-      icon: Flame,
+      icon: Wheat,
       calories: 4,
       description: "Primary energy source for high-intensity exercise and brain function.",
       color: "text-primary",
@@ -53,7 +53,7 @@ const MacroTracking = () => {
     },
     {
       title: "Fat",
-      icon: Droplets,
+      icon: EggFried,
       calories: 9,
       description: "Supports hormone production, nutrient absorption, and sustained energy.",
       color: "text-yellow-500",
