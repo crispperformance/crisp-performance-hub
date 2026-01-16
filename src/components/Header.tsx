@@ -64,6 +64,11 @@ const Header = () => {
                   Macro Calculator
                 </Link>
               </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/resources/bmr-calculator" className="cursor-pointer">
+                  BMR Calculator
+                </Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
           <Button variant="hero" size="default" asChild>
@@ -108,6 +113,13 @@ const Header = () => {
                 className="font-body text-sm uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-300 py-2 pl-4 block"
               >
                 Macro Calculator
+              </Link>
+              <Link
+                to="/resources/bmr-calculator"
+                onClick={() => setIsMenuOpen(false)}
+                className="font-body text-sm uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-300 py-2 pl-4 block"
+              >
+                BMR Calculator
               </Link>
             </div>
             <Button variant="hero" size="lg" className="mt-4" asChild>
