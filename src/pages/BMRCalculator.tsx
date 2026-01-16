@@ -93,7 +93,7 @@ const BMRCalculator = () => {
               BMR <span className="text-primary">Calculator</span>
             </h1>
             <p className="text-muted-foreground font-body max-w-2xl mx-auto">
-              Calculate your Basal Metabolic Rate and daily calorie needs using the Harris-Benedict equation.
+              Calculate your Basal Metabolic Rate and daily calories needed to cut, maintain, or bulk.
             </p>
           </motion.div>
 
@@ -321,19 +321,19 @@ const BMRCalculator = () => {
                     Your <span className="text-primary font-semibold">Basal Metabolic Rate (BMR)</span> is the number of calories your body needs to perform its most basic life-sustaining functions. This includes breathing, circulation, cell production, and nutrient processing. Think of it as the energy your body would burn if you stayed in bed all day doing absolutely nothing.
                   </p>
                   
-                  <h3 className="font-display text-xl text-foreground mt-8 mb-4">Why Use BMR for Maintenance Calories?</h3>
+                  <h3 className="font-display text-xl text-foreground mt-8 mb-4">Why We Use BMR for Maintenance Calories?</h3>
                   <p className="text-muted-foreground font-body leading-relaxed">
-                    BMR forms the foundation of your daily calorie needs. Since most of us aren't lying in bed all day, we multiply your BMR by an activity factor to estimate your <span className="text-primary font-semibold">Total Daily Energy Expenditure (TDEE)</span> — also known as your maintenance calories. This is the number of calories you need to maintain your current weight.
+                    BMR builds the foundation of your daily calorie needs. Since we don't tend to spend all day in bed, we multiply your BMR by an activity factor to estimate your <span className="text-primary font-semibold">Total Daily Energy Expenditure (TDEE)</span>, also known as your maintenance calories. This is the number of calories you need to maintain your current weight.
                   </p>
                   
-                  <h3 className="font-display text-xl text-foreground mt-8 mb-4">The Harris-Benedict Equation</h3>
+                  <h3 className="font-display text-xl text-foreground mt-8 mb-4">The Maths Behind It All</h3>
                   <p className="text-muted-foreground font-body leading-relaxed">
-                    We use the Harris-Benedict equation because it's one of the most well-researched and widely accepted methods for estimating BMR. Originally developed in 1918 and revised for accuracy, it takes into account your weight, height, age, and gender to provide a personalised estimate. While no formula is 100% accurate, this equation provides an excellent starting point for most individuals.
+                    We use the Harris-Benedict equation because it's one of the most well-researched and widely accepted methods for estimating BMR. Originally developed in 1918 and revised for accuracy, it takes into account your weight, height, age, and gender to provide a personalised estimate. While no formula is 100% accurate, this equation provides an excellent starting point for most people.
                   </p>
                   
                   <h3 className="font-display text-xl text-foreground mt-8 mb-4">Adjusting for Your Goals</h3>
                   <p className="text-muted-foreground font-body leading-relaxed">
-                    Once you know your maintenance calories, you can adjust based on your goals. To lose fat (cut), you'll eat below maintenance — typically 300-500 calories less. To build muscle (bulk), you'll eat above maintenance — typically 200-400 calories more. The bulk and cut buttons above let you make these adjustments in 100-calorie increments.
+                    Once you know your maintenance calories, you can adjust based on your goals. To lose fat ( or cut), you'll eat below maintenance- typically 300-500 calories less. To build muscle (or bulk), you'll eat above maintenance, you'll look to eat around 200-400 calories more. The bulk and cut buttons above let you make these adjustments in 100-calorie increments. It's important to remember that as your weight changes, so will your intake requirements. This is not a single, stuck factor. It must be adjusted reguarly as you go up or down in weight.
                   </p>
                 </div>
               </CardContent>
