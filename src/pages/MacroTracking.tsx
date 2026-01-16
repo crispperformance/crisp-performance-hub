@@ -9,16 +9,17 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const MacroTracking = () => {
-  const [totalCalories, setTotalCalories] = useState(2000);
+  const [totalCalories, setTotalCalories] = useState<number | string>(2000);
   const [carbPercent, setCarbPercent] = useState(40);
   const [proteinPercent, setProteinPercent] = useState(30);
   const [fatPercent, setFatPercent] = useState(30);
 
   // Calculate grams from percentages
   const calculations = useMemo(() => {
-    const carbCalories = (totalCalories * carbPercent) / 100;
-    const proteinCalories = (totalCalories * proteinPercent) / 100;
-    const fatCalories = (totalCalories * fatPercent) / 100;
+    const calories = typeof totalCalories === 'string' ? 0 : totalCalories;
+    const carbCalories = (calories * carbPercent) / 100;
+    const proteinCalories = (calories * proteinPercent) / 100;
+    const fatCalories = (calories * fatPercent) / 100;
 
     return {
       carbs: {
@@ -166,7 +167,7 @@ const MacroTracking = () => {
                     id="calories"
                     type="number"
                     value={totalCalories}
-                    onChange={(e) => setTotalCalories(Number(e.target.value) || 0)}
+                    onChange={(e) => setTotalCalories(e.target.value === '' ? '' : Number(e.target.value))}
                     className="bg-background border-border text-lg font-display"
                     min={0}
                     max={10000}

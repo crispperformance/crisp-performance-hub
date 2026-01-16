@@ -27,22 +27,26 @@ const activityLevels: ActivityLevel[] = [
 
 const BMRCalculator = () => {
   const [gender, setGender] = useState<Gender>("male");
-  const [weight, setWeight] = useState(70);
-  const [height, setHeight] = useState(175);
-  const [age, setAge] = useState(25);
+  const [weight, setWeight] = useState<number | string>(70);
+  const [height, setHeight] = useState<number | string>(175);
+  const [age, setAge] = useState<number | string>(25);
   const [selectedActivityIndex, setSelectedActivityIndex] = useState(2);
   const [calorieAdjustment, setCalorieAdjustment] = useState(0);
 
   // Harris-Benedict Equation
   const calculations = useMemo(() => {
+    const w = typeof weight === 'string' ? 0 : weight;
+    const h = typeof height === 'string' ? 0 : height;
+    const a = typeof age === 'string' ? 0 : age;
+    
     let bmr: number;
     
     if (gender === "male") {
       // Male: 66.5 + (13.75 x KG) + (5.003 x CM) - (6.75 x A)
-      bmr = 66.5 + (13.75 * weight) + (5.003 * height) - (6.75 * age);
+      bmr = 66.5 + (13.75 * w) + (5.003 * h) - (6.75 * a);
     } else {
       // Female: 655.1 + (9.563 x KG) + (1.850 x CM) - (4.676 x A)
-      bmr = 655.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age);
+      bmr = 655.1 + (9.563 * w) + (1.850 * h) - (4.676 * a);
     }
 
     const selectedActivity = activityLevels[selectedActivityIndex];
@@ -139,7 +143,7 @@ const BMRCalculator = () => {
                     id="weight"
                     type="number"
                     value={weight}
-                    onChange={(e) => setWeight(Number(e.target.value) || 0)}
+                    onChange={(e) => setWeight(e.target.value === '' ? '' : Number(e.target.value))}
                     className="bg-background border-border text-lg font-display"
                     min={0}
                     max={300}
@@ -156,7 +160,7 @@ const BMRCalculator = () => {
                     id="height"
                     type="number"
                     value={height}
-                    onChange={(e) => setHeight(Number(e.target.value) || 0)}
+                    onChange={(e) => setHeight(e.target.value === '' ? '' : Number(e.target.value))}
                     className="bg-background border-border text-lg font-display"
                     min={0}
                     max={250}
@@ -173,7 +177,7 @@ const BMRCalculator = () => {
                     id="age"
                     type="number"
                     value={age}
-                    onChange={(e) => setAge(Number(e.target.value) || 0)}
+                    onChange={(e) => setAge(e.target.value === '' ? '' : Number(e.target.value))}
                     className="bg-background border-border text-lg font-display"
                     min={0}
                     max={120}
