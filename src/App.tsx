@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import MacroTracking from "./pages/MacroTracking";
 import BMRCalculator from "./pages/BMRCalculator";
+import PL8Calculator from "./pages/PL8Calculator";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/resources/macro-calculator" element={<MacroTracking />} />
           <Route path="/resources/bmr-calculator" element={<BMRCalculator />} />
+          <Route path="/resources/pl8-calculator" element={<PL8Calculator />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
