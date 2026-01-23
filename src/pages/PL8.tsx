@@ -16,7 +16,7 @@ const plates = [
   { weight: 1.25, color: "bg-gray-400", border: "border-gray-500", name: "Silver" },
 ];
 
-const PL8Calculator = () => {
+const PL8 = () => {
   const [targetWeight, setTargetWeight] = useState<number | string>(100);
   const [useSquatBar, setUseSquatBar] = useState(false);
   const [useCompetitionCollars, setUseCompetitionCollars] = useState(false);
@@ -63,10 +63,11 @@ const PL8Calculator = () => {
               <span className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-4">
                 Resources
               </span>
-              <h1 className="font-display text-4xl md:text-5xl mb-4">PL8 Calculator</h1>
+              <h1 className="font-display text-4xl md:text-5xl mb-4">PL8</h1>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Calculate the plates you need for your target barbell weight
+                Work out what plates you need for each barbell weight. Use a standard 20kg barbell or switch to a 25kg squat bar. Need competition collars? We have those too. Never struggle with plate maths again.
               </p>
+
             </div>
 
             {/* Calculator Section */}
@@ -258,4 +259,4 @@ const PL8Calculator = () => {
   );
 };
 
-export default PL8Calculator;
+export default PL8;

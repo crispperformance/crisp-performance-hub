@@ -70,7 +70,7 @@ const Header = () => {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/resources/pl8-calculator" className="cursor-pointer">
+                <Link to="/resources/pl8" className="cursor-pointer">
                   PL8 Calculator
                 </Link>
               </DropdownMenuItem>
@@ -127,7 +127,7 @@ const Header = () => {
                 BMR Calculator
               </Link>
               <Link
-                to="/resources/pl8-calculator"
+                to="/resources/pl8"
                 onClick={() => setIsMenuOpen(false)}
                 className="font-body text-sm uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-300 py-2 pl-4 block"
               >
