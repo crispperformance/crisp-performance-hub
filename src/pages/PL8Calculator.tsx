@@ -23,9 +23,10 @@ const PL8Calculator = () => {
 
   const barbellWeight = useSquatBar ? 25 : 20;
   const collarWeight = useCompetitionCollars ? 5 : 0; // 2.5kg each side
-  const totalBarWeight = barbellWeight + collarWeight;
   const target = typeof targetWeight === "string" ? 0 : targetWeight;
-  const weightPerSide = Math.max(0, (target - totalBarWeight) / 2);
+  // Plates calculation is based on target = bar + plates (collars are additional)
+  const weightPerSide = Math.max(0, (target - barbellWeight) / 2);
+  const totalWithCollars = target + collarWeight;
 
   const calculatePlates = (weightNeeded: number) => {
     const result: { weight: number; color: string; border: string; name: string; count: number }[] = [];
@@ -43,8 +44,9 @@ const PL8Calculator = () => {
   };
 
   const { plates: neededPlates, remainder } = calculatePlates(weightPerSide);
-  const achievableWeight = totalBarWeight + (weightPerSide - remainder) * 2;
-  const isExactMatch = remainder === 0 && target >= totalBarWeight;
+  const achievablePlateWeight = barbellWeight + (weightPerSide - remainder) * 2;
+  const achievableTotalWeight = achievablePlateWeight + collarWeight;
+  const isExactMatch = remainder === 0 && target >= barbellWeight;
 
   return (
     <div className="min-h-screen bg-background">
@@ -132,24 +134,26 @@ const PL8Calculator = () => {
                     <p className="text-2xl font-display text-primary">{barbellWeight}kg</p>
                   </div>
                   <div className="text-center p-4 bg-muted/30 rounded-xl">
-                    <p className="text-muted-foreground text-sm mb-1">Collars</p>
-                    <p className="text-2xl font-display text-primary">{collarWeight}kg</p>
-                  </div>
-                  <div className="text-center p-4 bg-muted/30 rounded-xl">
                     <p className="text-muted-foreground text-sm mb-1">Each Side</p>
                     <p className="text-2xl font-display text-primary">{weightPerSide.toFixed(2)}kg</p>
                   </div>
                   <div className="text-center p-4 bg-muted/30 rounded-xl">
-                    <p className="text-muted-foreground text-sm mb-1">Achievable</p>
+                    <p className="text-muted-foreground text-sm mb-1">Bar + Plates</p>
                     <p className={`text-2xl font-display ${isExactMatch ? "text-green-500" : "text-yellow-500"}`}>
-                      {target >= totalBarWeight ? achievableWeight.toFixed(2) : 0}kg
+                      {target >= barbellWeight ? achievablePlateWeight.toFixed(2) : 0}kg
+                    </p>
+                  </div>
+                  <div className="text-center p-4 bg-muted/30 rounded-xl">
+                    <p className="text-muted-foreground text-sm mb-1">Total w/ Collars</p>
+                    <p className={`text-2xl font-display ${isExactMatch ? "text-green-500" : "text-yellow-500"}`}>
+                      {target >= barbellWeight ? achievableTotalWeight.toFixed(2) : 0}kg
                     </p>
                   </div>
                 </div>
 
-                {target < totalBarWeight ? (
+                {target < barbellWeight ? (
                   <div className="text-center py-8 text-muted-foreground">
-                    <p>Target weight must be at least {totalBarWeight}kg (barbell{useCompetitionCollars ? " + collars" : ""})</p>
+                    <p>Target weight must be at least {barbellWeight}kg (barbell weight)</p>
                   </div>
                 ) : neededPlates.length === 0 && weightPerSide === 0 ? (
                   <div className="text-center py-8 text-muted-foreground">
