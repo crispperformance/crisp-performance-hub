@@ -19,10 +19,13 @@ const plates = [
 const PL8Calculator = () => {
   const [targetWeight, setTargetWeight] = useState<number | string>(100);
   const [useSquatBar, setUseSquatBar] = useState(false);
+  const [useCompetitionCollars, setUseCompetitionCollars] = useState(false);
 
   const barbellWeight = useSquatBar ? 25 : 20;
+  const collarWeight = useCompetitionCollars ? 5 : 0; // 2.5kg each side
+  const totalBarWeight = barbellWeight + collarWeight;
   const target = typeof targetWeight === "string" ? 0 : targetWeight;
-  const weightPerSide = Math.max(0, (target - barbellWeight) / 2);
+  const weightPerSide = Math.max(0, (target - totalBarWeight) / 2);
 
   const calculatePlates = (weightNeeded: number) => {
     const result: { weight: number; color: string; border: string; name: string; count: number }[] = [];
@@ -40,8 +43,8 @@ const PL8Calculator = () => {
   };
 
   const { plates: neededPlates, remainder } = calculatePlates(weightPerSide);
-  const achievableWeight = barbellWeight + (weightPerSide - remainder) * 2;
-  const isExactMatch = remainder === 0 && target >= barbellWeight;
+  const achievableWeight = totalBarWeight + (weightPerSide - remainder) * 2;
+  const isExactMatch = remainder === 0 && target >= totalBarWeight;
 
   return (
     <div className="min-h-screen bg-background">
@@ -102,14 +105,35 @@ const PL8Calculator = () => {
                     </span>
                   </div>
                 </div>
+
+                {/* Competition Collars Toggle */}
+                <div className="space-y-3">
+                  <Label className="text-base font-medium">Competition Collars</Label>
+                  <div className="flex items-center gap-4 h-12">
+                    <span className={`text-sm ${!useCompetitionCollars ? "text-primary font-medium" : "text-muted-foreground"}`}>
+                      No Collars
+                    </span>
+                    <Switch
+                      checked={useCompetitionCollars}
+                      onCheckedChange={setUseCompetitionCollars}
+                    />
+                    <span className={`text-sm ${useCompetitionCollars ? "text-primary font-medium" : "text-muted-foreground"}`}>
+                      2.5kg Each (5kg Total)
+                    </span>
+                  </div>
+                </div>
               </div>
 
               {/* Results */}
               <div className="border-t border-border pt-8">
-                <div className="grid md:grid-cols-3 gap-6 mb-8">
+                <div className="grid md:grid-cols-4 gap-6 mb-8">
                   <div className="text-center p-4 bg-muted/30 rounded-xl">
                     <p className="text-muted-foreground text-sm mb-1">Barbell</p>
                     <p className="text-2xl font-display text-primary">{barbellWeight}kg</p>
+                  </div>
+                  <div className="text-center p-4 bg-muted/30 rounded-xl">
+                    <p className="text-muted-foreground text-sm mb-1">Collars</p>
+                    <p className="text-2xl font-display text-primary">{collarWeight}kg</p>
                   </div>
                   <div className="text-center p-4 bg-muted/30 rounded-xl">
                     <p className="text-muted-foreground text-sm mb-1">Each Side</p>
@@ -118,14 +142,14 @@ const PL8Calculator = () => {
                   <div className="text-center p-4 bg-muted/30 rounded-xl">
                     <p className="text-muted-foreground text-sm mb-1">Achievable</p>
                     <p className={`text-2xl font-display ${isExactMatch ? "text-green-500" : "text-yellow-500"}`}>
-                      {target >= barbellWeight ? achievableWeight.toFixed(2) : 0}kg
+                      {target >= totalBarWeight ? achievableWeight.toFixed(2) : 0}kg
                     </p>
                   </div>
                 </div>
 
-                {target < barbellWeight ? (
+                {target < totalBarWeight ? (
                   <div className="text-center py-8 text-muted-foreground">
-                    <p>Target weight must be at least {barbellWeight}kg (barbell weight)</p>
+                    <p>Target weight must be at least {totalBarWeight}kg (barbell{useCompetitionCollars ? " + collars" : ""})</p>
                   </div>
                 ) : neededPlates.length === 0 && weightPerSide === 0 ? (
                   <div className="text-center py-8 text-muted-foreground">
