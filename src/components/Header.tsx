@@ -69,6 +69,11 @@ const Header = () => {
                   BMR Calculator
                 </Link>
               </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/resources/pl8-calculator" className="cursor-pointer">
+                  PL8 Calculator
+                </Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
           <Button variant="hero" size="default" asChild>
@@ -120,6 +125,13 @@ const Header = () => {
                 className="font-body text-sm uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-300 py-2 pl-4 block"
               >
                 BMR Calculator
+              </Link>
+              <Link
+                to="/resources/pl8-calculator"
+                onClick={() => setIsMenuOpen(false)}
+                className="font-body text-sm uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-300 py-2 pl-4 block"
+              >
+                PL8 Calculator
               </Link>
             </div>
             <Button variant="hero" size="lg" className="mt-4" asChild>
