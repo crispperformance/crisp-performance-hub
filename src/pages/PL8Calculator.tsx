@@ -70,8 +70,9 @@ const PL8Calculator = () => {
             </div>
 
             {/* Calculator Section */}
-            <div className="card-elevated rounded-2xl p-8 mb-8">
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="card-elevated rounded-2xl p-6 md:p-8 mb-8">
+              {/* Input Row */}
+              <div className="space-y-6 mb-8">
                 {/* Target Weight Input */}
                 <div className="space-y-3">
                   <Label htmlFor="targetWeight" className="text-base font-medium">
@@ -84,42 +85,39 @@ const PL8Calculator = () => {
                     onChange={(e) =>
                       setTargetWeight(e.target.value === "" ? "" : Number(e.target.value))
                     }
-                    className="text-lg h-12"
+                    className="text-lg h-12 max-w-xs"
                     min={0}
                     step={0.5}
                   />
                 </div>
 
-                {/* Barbell Toggle */}
-                <div className="space-y-3">
-                  <Label className="text-base font-medium">Barbell Type</Label>
-                  <div className="flex items-center gap-4 h-12">
-                    <span className={`text-sm ${!useSquatBar ? "text-primary font-medium" : "text-muted-foreground"}`}>
+                {/* Toggles Row */}
+                <div className="flex flex-col sm:flex-row gap-6">
+                  {/* Barbell Toggle */}
+                  <div className="flex items-center gap-3 p-4 bg-muted/20 rounded-xl">
+                    <span className={`text-sm whitespace-nowrap ${!useSquatBar ? "text-primary font-medium" : "text-muted-foreground"}`}>
                       Standard (20kg)
                     </span>
                     <Switch
                       checked={useSquatBar}
                       onCheckedChange={setUseSquatBar}
                     />
-                    <span className={`text-sm ${useSquatBar ? "text-primary font-medium" : "text-muted-foreground"}`}>
+                    <span className={`text-sm whitespace-nowrap ${useSquatBar ? "text-primary font-medium" : "text-muted-foreground"}`}>
                       Squat Bar (25kg)
                     </span>
                   </div>
-                </div>
 
-                {/* Competition Collars Toggle */}
-                <div className="space-y-3">
-                  <Label className="text-base font-medium">Competition Collars</Label>
-                  <div className="flex items-center gap-4 h-12">
-                    <span className={`text-sm ${!useCompetitionCollars ? "text-primary font-medium" : "text-muted-foreground"}`}>
-                      No Collars
+                  {/* Competition Collars Toggle */}
+                  <div className="flex items-center gap-3 p-4 bg-muted/20 rounded-xl">
+                    <span className={`text-sm whitespace-nowrap ${!useCompetitionCollars ? "text-muted-foreground" : "text-muted-foreground"}`}>
+                      Collars
                     </span>
                     <Switch
                       checked={useCompetitionCollars}
                       onCheckedChange={setUseCompetitionCollars}
                     />
-                    <span className={`text-sm ${useCompetitionCollars ? "text-primary font-medium" : "text-muted-foreground"}`}>
-                      2.5kg Each (5kg Total)
+                    <span className={`text-sm whitespace-nowrap ${useCompetitionCollars ? "text-orange-500 font-medium" : "text-muted-foreground"}`}>
+                      2.5kg Each
                     </span>
                   </div>
                 </div>
@@ -177,7 +175,12 @@ const PL8Calculator = () => {
 
                     {/* Visual Barbell Representation */}
                     <h3 className="font-display text-xl mb-4 text-center">Barbell View</h3>
-                    <div className="flex items-center justify-center gap-1 overflow-x-auto py-4">
+                    <div className="flex items-center justify-center gap-0 overflow-x-auto py-4">
+                      {/* Left collar */}
+                      {useCompetitionCollars && (
+                        <div className="w-3 h-10 bg-orange-500 border border-orange-600 rounded-sm shadow-md" />
+                      )}
+                      
                       {/* Left plates (reversed order) */}
                       <div className="flex items-center gap-0.5">
                         {[...neededPlates].reverse().flatMap((plate, plateIndex) =>
@@ -214,6 +217,11 @@ const PL8Calculator = () => {
                           ))
                         )}
                       </div>
+
+                      {/* Right collar */}
+                      {useCompetitionCollars && (
+                        <div className="w-3 h-10 bg-orange-500 border border-orange-600 rounded-sm shadow-md" />
+                      )}
                     </div>
 
                     {remainder > 0 && (
