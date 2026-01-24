@@ -216,7 +216,7 @@ const PL8 = () => {
                       </div>
 
                       {/* Barbell */}
-                      <div className="h-5 w-24 md:w-40 bg-gray-400 rounded-full shadow-inner flex items-center justify-center relative">
+                      <div className="h-5 w-24 md:w-40 bg-[#dde9ee] rounded-full shadow-inner flex items-center justify-center relative">
                         <span className="text-[10px] font-bold text-gray-700">{barbellWeight}kg</span>
                       </div>
 
