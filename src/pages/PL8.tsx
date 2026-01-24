@@ -75,7 +75,7 @@ const PL8 = () => {
               {/* Input Row */}
               <div className="space-y-6 mb-8">
                 {/* Target Weight Input */}
-                <div className="space-y-3">
+                <div className="space-y-3 text-center flex flex-col items-center">
                   <Label htmlFor="targetWeight" className="text-base font-medium">
                     Target Weight (kg)
                   </Label>
@@ -86,7 +86,7 @@ const PL8 = () => {
                     onChange={(e) =>
                       setTargetWeight(e.target.value === "" ? "" : Number(e.target.value))
                     }
-                    className="text-lg h-12 max-w-xs"
+                    className="text-lg h-12 max-w-xs w-full"
                     min={0}
                     step={0.5}
                   />
