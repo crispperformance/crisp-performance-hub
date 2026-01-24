@@ -28,6 +28,7 @@ const PL8 = () => {
   const target = typeof targetWeight === "string" ? 0 : targetWeight;
   // Collars count toward target: 100kg = bar + collars + plates
   const weightPerSide = Math.max(0, (target - totalBarWeight) / 2);
+  const formatWeight = (value: number) => value.toFixed(2).replace(/\.?0+$/, "");
 
   const calculatePlates = (weightNeeded: number) => {
     const result: { weight: number; color: string; border: string; name: string; count: number }[] = [];
@@ -136,20 +137,20 @@ const PL8 = () => {
                 <div className="grid md:grid-cols-4 gap-6 mb-8">
                   <div className="text-center p-4 bg-muted/30 rounded-xl">
                     <p className="text-muted-foreground text-sm mb-1">Barbell</p>
-                    <p className="text-2xl font-display text-primary">{barbellWeight}kg</p>
+                    <p className="text-2xl font-display text-white">{formatWeight(barbellWeight)}kg</p>
                   </div>
                   <div className="text-center p-4 bg-muted/30 rounded-xl">
                     <p className="text-muted-foreground text-sm mb-1">Collars</p>
-                    <p className="text-2xl font-display text-primary">{collarWeight}kg</p>
+                    <p className="text-2xl font-display text-white">{formatWeight(collarWeight)}kg</p>
                   </div>
                   <div className="text-center p-4 bg-muted/30 rounded-xl">
                     <p className="text-muted-foreground text-sm mb-1">Plates Per Side</p>
-                    <p className="text-2xl font-display text-primary">{weightPerSide.toFixed(2)}kg</p>
+                    <p className="text-2xl font-display text-white">{formatWeight(weightPerSide)}kg</p>
                   </div>
                   <div className="text-center p-4 bg-muted/30 rounded-xl">
                     <p className="text-muted-foreground text-sm mb-1">Total Weight</p>
                     <p className={`text-2xl font-display ${isExactMatch ? "text-green-500" : "text-yellow-500"}`}>
-                      {target >= totalBarWeight ? achievableWeight.toFixed(2) : 0}kg
+                      {formatWeight(target >= totalBarWeight ? achievableWeight : 0)}kg
                     </p>
                   </div>
                 </div>
