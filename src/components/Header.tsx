@@ -71,7 +71,7 @@ const Header = () => {
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link to="/resources/pl8" className="cursor-pointer">
-                  PL8 Calculator
+                  PL8
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -131,7 +131,7 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className="font-body text-sm uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-300 py-2 pl-4 block"
               >
-                PL8 Calculator
+                PL8
               </Link>
             </div>
             <Button variant="hero" size="lg" className="mt-4" asChild>

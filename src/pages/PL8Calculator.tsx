@@ -14,6 +14,7 @@ const plates = [
   { weight: 5, color: "bg-white", border: "border-gray-300", name: "White" },
   { weight: 2.5, color: "bg-gray-900", border: "border-gray-700", name: "Black" },
   { weight: 1.25, color: "bg-gray-400", border: "border-gray-500", name: "Silver" },
+  { weight: 2.5, color: "bg-gray-400", border: "border-gray-500", name: "Orange" },
 ];
 
 const PL8Calculator = () => {
