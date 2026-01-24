@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
 
 const plates = [
   { weight: 25, color: "bg-red-600", border: "border-red-700", name: "Red" },
@@ -15,6 +14,8 @@ const plates = [
   { weight: 2.5, color: "bg-gray-900", border: "border-gray-700", name: "Black" },
   { weight: 1.25, color: "bg-gray-400", border: "border-gray-500", name: "Silver" },
 ];
+
+const collarPlate = { weight: 2.5, color: "bg-orange-500", border: "border-orange-600", name: "Collar" };
 
 const PL8 = () => {
   const [targetWeight, setTargetWeight] = useState<number | string>(100);
@@ -93,34 +94,43 @@ const PL8 = () => {
                 </div>
 
                 {/* Toggles Row */}
-                <div className="flex flex-col sm:flex-row gap-6">
-                  {/* Barbell Toggle */}
-                  <div className="flex items-center gap-3 p-4 bg-muted/20 rounded-xl">
-                    <span className={`text-sm whitespace-nowrap ${!useSquatBar ? "text-primary font-medium" : "text-muted-foreground"}`}>
-                      Standard (20kg)
-                    </span>
-                    <Switch
-                      checked={useSquatBar}
-                      onCheckedChange={setUseSquatBar}
-                    />
-                    <span className={`text-sm whitespace-nowrap ${useSquatBar ? "text-primary font-medium" : "text-muted-foreground"}`}>
-                      Squat Bar (25kg)
-                    </span>
-                  </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  {/* Barbell Options */}
+                  <button
+                    onClick={() => setUseSquatBar(false)}
+                    className={`p-3 rounded-lg border-2 transition-all text-center ${
+                      !useSquatBar 
+                        ? "border-primary bg-primary/10 text-primary" 
+                        : "border-border bg-muted/20 text-muted-foreground hover:border-muted-foreground"
+                    }`}
+                  >
+                    <span className="font-medium text-sm">Standard Bar</span>
+                    <span className="block text-xs opacity-70">20kg</span>
+                  </button>
+                  <button
+                    onClick={() => setUseSquatBar(true)}
+                    className={`p-3 rounded-lg border-2 transition-all text-center ${
+                      useSquatBar 
+                        ? "border-primary bg-primary/10 text-primary" 
+                        : "border-border bg-muted/20 text-muted-foreground hover:border-muted-foreground"
+                    }`}
+                  >
+                    <span className="font-medium text-sm">Squat Bar</span>
+                    <span className="block text-xs opacity-70">25kg</span>
+                  </button>
 
                   {/* Competition Collars Toggle */}
-                  <div className="flex items-center gap-3 p-4 bg-muted/20 rounded-xl">
-                    <span className={`text-sm whitespace-nowrap ${!useCompetitionCollars ? "text-muted-foreground" : "text-muted-foreground"}`}>
-                      Collars
-                    </span>
-                    <Switch
-                      checked={useCompetitionCollars}
-                      onCheckedChange={setUseCompetitionCollars}
-                    />
-                    <span className={`text-sm whitespace-nowrap ${useCompetitionCollars ? "text-orange-500 font-medium" : "text-muted-foreground"}`}>
-                      2.5kg Each
-                    </span>
-                  </div>
+                  <button
+                    onClick={() => setUseCompetitionCollars(!useCompetitionCollars)}
+                    className={`p-3 rounded-lg border-2 transition-all text-center col-span-2 sm:col-span-1 ${
+                      useCompetitionCollars 
+                        ? "border-orange-500 bg-orange-500/10 text-orange-500" 
+                        : "border-border bg-muted/20 text-muted-foreground hover:border-muted-foreground"
+                    }`}
+                  >
+                    <span className="font-medium text-sm">Competition Collars</span>
+                    <span className="block text-xs opacity-70">2.5kg each</span>
+                  </button>
                 </div>
               </div>
 
@@ -179,7 +189,9 @@ const PL8 = () => {
                     <div className="flex items-center justify-center gap-0 overflow-x-auto py-4">
                       {/* Left collar */}
                       {useCompetitionCollars && (
-                        <div className="w-3 h-10 bg-orange-500 border border-orange-600 rounded-sm shadow-md" />
+                        <div className="w-4 h-10 bg-orange-500 border border-orange-600 rounded-sm shadow-md flex items-center justify-center">
+                          <span className="text-[8px] font-bold text-white rotate-90">2.5</span>
+                        </div>
                       )}
                       
                       {/* Left plates (reversed order) */}
@@ -188,19 +200,25 @@ const PL8 = () => {
                           Array.from({ length: plate.count }).map((_, i) => (
                             <div
                               key={`left-${plateIndex}-${i}`}
-                              className={`${plate.color} ${plate.border} border rounded-sm shadow-md ${
-                                plate.weight >= 20 ? "w-4 h-20" :
-                                plate.weight >= 10 ? "w-3 h-16" :
-                                plate.weight >= 5 ? "w-2.5 h-14" :
-                                "w-2 h-12"
+                              className={`${plate.color} ${plate.border} border rounded-sm shadow-md flex items-center justify-center ${
+                                plate.weight >= 20 ? "w-6 h-20" :
+                                plate.weight >= 10 ? "w-5 h-16" :
+                                plate.weight >= 5 ? "w-4 h-14" :
+                                "w-3 h-12"
                               }`}
-                            />
+                            >
+                              <span className={`text-[10px] font-bold rotate-90 ${plate.weight === 5 || plate.weight === 15 ? "text-gray-800" : "text-white"}`}>
+                                {plate.weight}
+                              </span>
+                            </div>
                           ))
                         )}
                       </div>
 
                       {/* Barbell */}
-                      <div className="h-4 w-24 md:w-40 bg-gray-600 rounded-full shadow-inner" />
+                      <div className="h-5 w-24 md:w-40 bg-gray-400 rounded-full shadow-inner flex items-center justify-center relative">
+                        <span className="text-[10px] font-bold text-gray-700">{barbellWeight}kg</span>
+                      </div>
 
                       {/* Right plates */}
                       <div className="flex items-center gap-0.5">
@@ -208,20 +226,26 @@ const PL8 = () => {
                           Array.from({ length: plate.count }).map((_, i) => (
                             <div
                               key={`right-${plateIndex}-${i}`}
-                              className={`${plate.color} ${plate.border} border rounded-sm shadow-md ${
-                                plate.weight >= 20 ? "w-4 h-20" :
-                                plate.weight >= 10 ? "w-3 h-16" :
-                                plate.weight >= 5 ? "w-2.5 h-14" :
-                                "w-2 h-12"
+                              className={`${plate.color} ${plate.border} border rounded-sm shadow-md flex items-center justify-center ${
+                                plate.weight >= 20 ? "w-6 h-20" :
+                                plate.weight >= 10 ? "w-5 h-16" :
+                                plate.weight >= 5 ? "w-4 h-14" :
+                                "w-3 h-12"
                               }`}
-                            />
+                            >
+                              <span className={`text-[10px] font-bold rotate-90 ${plate.weight === 5 || plate.weight === 15 ? "text-gray-800" : "text-white"}`}>
+                                {plate.weight}
+                              </span>
+                            </div>
                           ))
                         )}
                       </div>
 
                       {/* Right collar */}
                       {useCompetitionCollars && (
-                        <div className="w-3 h-10 bg-orange-500 border border-orange-600 rounded-sm shadow-md" />
+                        <div className="w-4 h-10 bg-orange-500 border border-orange-600 rounded-sm shadow-md flex items-center justify-center">
+                          <span className="text-[8px] font-bold text-white rotate-90">2.5</span>
+                        </div>
                       )}
                     </div>
 
@@ -237,10 +261,10 @@ const PL8 = () => {
 
             {/* Plate Colour Reference */}
             <div className="card-elevated rounded-2xl p-8">
-              <h2 className="font-display text-2xl mb-6 text-center">Plate Colour Reference</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-                {plates.map((plate) => (
-                  <div key={plate.weight} className="flex flex-col items-center gap-2 p-4 bg-muted/20 rounded-xl">
+              <h2 className="font-display text-2xl mb-6 text-center">Plate Colours</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+                {[...plates, collarPlate].map((plate, index) => (
+                  <div key={`${plate.weight}-${index}`} className="flex flex-col items-center gap-2 p-4 bg-muted/20 rounded-xl">
                     <div
                       className={`w-12 h-16 ${plate.color} ${plate.border} border-2 rounded-lg shadow-md`}
                     />
