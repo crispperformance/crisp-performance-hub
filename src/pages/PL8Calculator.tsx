@@ -259,7 +259,7 @@ const PL8Calculator = () => {
 
             {/* Plate Color Reference */}
             <div className="card-elevated rounded-2xl p-8">
-              <h2 className="font-display text-2xl mb-6 text-center">Plate Color Reference</h2>
+              <h2 className="font-display text-2xl mb-6 text-center">Plate Colours</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
                 {[...plates, collarPlate].map((plate, index) => (
                   <div key={`${plate.weight}-${index}`} className="flex flex-col items-center gap-2 p-4 bg-muted/20 rounded-xl">
